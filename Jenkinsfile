@@ -15,7 +15,7 @@ pipeline {
                     $class: 'GitSCM',
                     branches: [[name: '*/main']],
                     userRemoteConfigs: [[
-                        url: https://github.com/Ohenix/My-Jenkins-Demo.git'
+                        url: 'https://github.com/Ohenix/My-Jenkins-Demo.git'
                     ]]
                 ])
             }
