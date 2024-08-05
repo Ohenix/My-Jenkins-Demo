@@ -26,17 +26,12 @@ pipeline {
                 sh 'terraform init'
             }
         }
-        stage('Terraform Plan') {
-            steps {
-                // Generate and show Terraform execution plan
-                sh 'terraform plan -out=tfplan'
-            }
-        }
+    
         stage('Terraform Apply') {
             steps {
                 // Apply the Terraform plan
-                input 'Approve to apply?'
-                sh 'terraform apply tfplan'
+                echo "Terraform action is --> ${action}"
+                sh ('terraform ${action} --auto-approve') 
             }
         }
     }
